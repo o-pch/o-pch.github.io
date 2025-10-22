@@ -1,25 +1,36 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 export default function App(){
+  const { t, i18n } = useTranslation()
+
+  function changeLang(lng){
+    i18n.changeLanguage(lng)
+  }
+
   return (
     <div className="app">
       <header className="site-header">
         <div className="container">
-          <h1>pch</h1>
+          <h1>{t('title')}</h1>
+          <div style={{float:'right'}}>
+            <button onClick={()=>changeLang('ja')}>日本語</button>
+            <button onClick={()=>changeLang('en')} style={{marginLeft:8}}>EN</button>
+          </div>
         </div>
       </header>
 
       <main className="container">
         <section className="downloads">
-          <h2>Links / ダウンロード</h2>
+          <h2>{t('links')}</h2>
           <p>
-            YouTube チャンネル: <a id="youtubeChannel" href="#" title="YouTube チャンネル（URL は後で追加）">チャンネルを見る (URL を設定してください)</a>
+            {t('youtube')}: <a id="youtubeChannel" href="#" title={t('youtube')}>{t('channel_placeholder')}</a>
           </p>
 
-          <h3>MyRPG デモ版</h3>
+          <h3>{t('myrpg')}</h3>
           <ul>
-            <li>ROM 版: <a href="files/gb-myrpg-release-MyRPGDemo202507.zip">gb-myrpg-release-MyRPGDemo202507.zip</a></li>
-            <li>Windows 実行ファイル: <a href="files/MyRPGDemo202507_Windows.zip">MyRPGDemo202507_Windows.zip</a></li>
+            <li>{t('rom')}: <a href="files/gb-myrpg-release-MyRPGDemo202507.zip">gb-myrpg-release-MyRPGDemo202507.zip</a></li>
+            <li>{t('windows')}: <a href="files/MyRPGDemo202507_Windows.zip">MyRPGDemo202507_Windows.zip</a></li>
           </ul>
         </section>
       </main>
