@@ -3,12 +3,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Chrome (http://localhost:8000)",
+      "name": "Launch Chrome (Vite)",
       "type": "chrome",
       "request": "launch",
-      "url": "http://localhost:8000",
+      "url": "http://localhost:5173",
       "webRoot": "${workspaceFolder}",
-      "preLaunchTask": "Run Python HTTP Server",
+      "preLaunchTask": "Run Vite Dev Server",
       "runtimeExecutable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
       "userDataDir": "${workspaceFolder}/.vscode/chrome",
       "presentation": {

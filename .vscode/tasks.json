@@ -16,5 +16,21 @@
         "cwd": "${workspaceFolder}"
       }
     }
+    ,
+    {
+      "label": "Run Vite Dev Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "showReuseMessage": true
+      },
+      "isBackground": true,
+      "problemMatcher": [],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    }
   ]
 }
