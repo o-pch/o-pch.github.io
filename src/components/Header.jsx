@@ -17,8 +17,28 @@ export default function Header(){
         <div className="brand-title">{t('title')}</div>
         <div className="spacer" />
         <div className="header-actions">
-          <button className="md-btn" onClick={()=>changeLang('ja')}>日本語</button>
-          <button className="md-btn secondary" onClick={()=>changeLang('en')} style={{marginLeft:8}}>EN</button>
+          {(() => {
+            const current = i18n.language || i18n.resolvedLanguage || 'ja'
+            return (
+              <>
+                <button
+                  className={`lang-btn md-btn ${current.startsWith('ja') ? 'active' : ''}`}
+                  onClick={()=>changeLang('ja')}
+                  aria-pressed={current.startsWith('ja')}
+                >
+                  日本語
+                </button>
+                <button
+                  className={`lang-btn md-btn ${current.startsWith('en') ? 'active' : ''}`}
+                  onClick={()=>changeLang('en')}
+                  aria-pressed={current.startsWith('en')}
+                  style={{marginLeft:8}}
+                >
+                  EN
+                </button>
+              </>
+            )
+          })()}
         </div>
       </div>
     </header>

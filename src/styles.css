@@ -26,8 +26,13 @@ body{margin:0;font-family:'Roboto', Inter, Arial, Helvetica, sans-serif;backgrou
 /* Buttons (Material-like) */
 button{font-family:inherit}
 .md-btn{background:var(--md-primary);color:var(--md-on-primary);border:0;padding:8px 14px;border-radius:6px;cursor:pointer;box-shadow:var(--elevation-1);font-weight:500}
-.md-btn.secondary{background:transparent;color:var(--text);box-shadow:none;border:1px solid rgba(255,255,255,0.06)}
 .md-btn:active{transform:translateY(1px)}
+
+/* language buttons: consistent base, clear active state */
+.lang-btn{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.06);box-shadow:none;padding:6px 10px;border-radius:6px;transition:all .14s ease}
+.lang-btn.active{background:var(--md-primary);color:var(--md-on-primary);box-shadow:var(--elevation-1);border-color:rgba(0,0,0,0.12)}
+.lang-btn:focus{outline:2px solid rgba(255,255,255,0.08);outline-offset:2px}
+.lang-btn + .lang-btn{margin-left:8px}
 
 /* YouTube channel button */
 .yt-btn{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;padding:6px 10px;border-radius:999px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,0.25);font-weight:600;border:1px solid rgba(0,0,0,0.08)}
