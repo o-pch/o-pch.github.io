@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Header from './components/Header'
+import config from './config'
 
 export default function App(){
   const { t, i18n } = useTranslation()
@@ -21,13 +22,13 @@ export default function App(){
         <section className="downloads">
           <h2>{t('links')}</h2>
           <p>
-            {t('youtube')}: <a id="youtubeChannel" href="#" title={t('youtube')}>{t('channel_placeholder')}</a>
+            {t('youtube')}: <a id="youtubeChannel" href={config.youtubeUrl || '#'} title={t('youtube')} target="_blank" rel="noopener noreferrer">{t('channel_placeholder')}</a>
           </p>
 
           <h3>{t('myrpg')}</h3>
           <ul>
-            <li>{t('rom')}: <a href="files/gb-myrpg-release-MyRPGDemo202507.zip">gb-myrpg-release-MyRPGDemo202507.zip</a></li>
-            <li>{t('windows')}: <a href="files/MyRPGDemo202507_Windows.zip">MyRPGDemo202507_Windows.zip</a></li>
+            <li>{t('rom')}: <a href={config.downloads.rom}>{config.downloads.rom}</a></li>
+            <li>{t('windows')}: <a href={config.downloads.windows}>{config.downloads.windows}</a></li>
           </ul>
         </section>
       </main>
