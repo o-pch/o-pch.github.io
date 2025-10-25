@@ -22,9 +22,12 @@ export default function App(){
 
       <main className="container">
         <section className="downloads">
-          <h2>{t('links')}</h2>
+          <h2>{t('about.title')}</h2>
           <p>
-            {t('youtube')}: <a id="youtubeChannel" href={config.youtubeUrl || '#'} title={t('youtube')} target="_blank" rel="noopener noreferrer">{t('channel_placeholder')}</a>
+            {t('about.desc')}
+          </p>
+          <p>
+            {t('about.youtube')}: <a id="youtubeChannel" href={config.youtubeUrl || '#'} title={t('about.youtube')} target="_blank" rel="noopener noreferrer">{t('channel_placeholder')}</a>
           </p>
         </section>
 

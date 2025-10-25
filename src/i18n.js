@@ -5,12 +5,15 @@ const resources = {
   ja: {
     translation: {
       title: 'pch',
-      links: 'Links / ダウンロード',
-      youtube: 'YouTube チャンネル',
-  myrpg: 'MyRPG デモ版',
-  myrpg_title: 'MyRPG',
-  myrpg_desc: '制作中のゲームボーイ用ロールプレイングゲームです',
-  demo: 'デモ版ダウンロード',
+      about: {
+        title: 'このページについて',
+        desc: 'このサイトは、pch（ピーシーエイチ）によって運営されています。主にゲームボーイ用の自作ソフトウェアの開発情報を提供しています。',
+        youtube: 'YouTube チャンネル',
+      },
+      myrpg: 'MyRPG デモ版',
+      myrpg_title: 'MyRPG',
+      myrpg_desc: '制作中のゲームボーイ用ロールプレイングゲームです',
+      demo: 'デモ版ダウンロード',
       rom: 'ROM 版',
       windows: 'Windows 実行ファイル',
       channel_placeholder: 'チャンネルを見る (URL を設定してください)'
@@ -19,12 +22,15 @@ const resources = {
   en: {
     translation: {
       title: 'pch',
-      links: 'Links / Downloads',
-      youtube: 'YouTube Channel',
-  myrpg: 'MyRPG Demo',
-  myrpg_title: 'MyRPG',
-  myrpg_desc: 'A role-playing game for Game Boy in development',
-  demo: 'Download Demo',
+      about: {
+        title: 'About this site',
+        desc: 'This site is operated by pch and provides information on the development of homebrew software for the Game Boy.',
+        youtube: 'YouTube Channel',
+      },
+      myrpg: 'MyRPG Demo',
+      myrpg_title: 'MyRPG',
+      myrpg_desc: 'A role-playing game for Game Boy in development',
+      demo: 'Download Demo',
       rom: 'ROM',
       windows: 'Windows executable',
       channel_placeholder: 'View channel (set URL)'
