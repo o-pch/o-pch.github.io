@@ -42,6 +42,19 @@ export default function App(){
           <h2>{t('myrpg_title')}</h2>
           <p>{t('myrpg_desc')}</p>
 
+          <p>
+            <a
+              className={config.myrpgPlaylist ? 'yt-btn' : 'yt-btn disabled'}
+              href={config.myrpgPlaylist || '#'}
+              title={t('myrpg_playlist')}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="yt-icon material-icons">playlist_play</span>
+              <span className="yt-text">{t('myrpg_playlist')}</span>
+            </a>
+          </p>
+
           <ScreenshotGallery />
 
           <h3>{t('demo')}</h3>

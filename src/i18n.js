@@ -15,6 +15,7 @@ const resources = {
       myrpg_desc: '制作中のゲームボーイ用ロールプレイングゲームです',
       demo: 'デモ版ダウンロード',
   download_button: 'ダウンロード',
+    myrpg_playlist: '制作過程プレイリスト',
       rom: 'ROM 版',
       windows: 'Windows 実行ファイル',
       channel_placeholder: 'チャンネルを見る (URL を設定してください)'
@@ -33,6 +34,7 @@ const resources = {
       myrpg_desc: 'A role-playing game for Game Boy in development',
       demo: 'Download Demo',
   download_button: 'Download',
+    myrpg_playlist: 'Development playlist',
       rom: 'ROM',
       windows: 'Windows executable',
       channel_placeholder: 'View channel (set URL)'
