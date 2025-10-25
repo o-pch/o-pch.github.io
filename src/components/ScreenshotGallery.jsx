@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 // ScreenshotGallery
 // - Tries to auto-import images placed under src/assets/images/myrpg/screenshots
@@ -9,6 +9,8 @@ import React, { useEffect, useState } from 'react'
 
 export default function ScreenshotGallery({ className }){
   const [images, setImages] = useState([])
+  const containerRef = useRef(null)
+  const pointer = useRef({ down: false, startX: 0, scrollLeft: 0 })
 
   useEffect(()=>{
 
@@ -29,13 +31,60 @@ export default function ScreenshotGallery({ className }){
 
   if(images.length===0) return null
 
+  const scrollByOffset = (offset) => {
+    const el = containerRef.current
+    if(!el) return
+    const amount = Math.round(el.clientWidth * 0.8) * offset
+    el.scrollBy({ left: amount, behavior: 'smooth' })
+  }
+
+  // Pointer drag handlers for touch / mouse
+  function onPointerDown(e){
+    const el = containerRef.current
+    if(!el) return
+    pointer.current.down = true
+    pointer.current.startX = e.clientX || (e.touches && e.touches[0].clientX) || 0
+    pointer.current.scrollLeft = el.scrollLeft
+    el.setPointerCapture && el.setPointerCapture(e.pointerId)
+  }
+
+  function onPointerMove(e){
+    const el = containerRef.current
+    if(!el || !pointer.current.down) return
+    const x = e.clientX || (e.touches && e.touches[0].clientX) || 0
+    const dx = x - pointer.current.startX
+    el.scrollLeft = pointer.current.scrollLeft - dx
+  }
+
+  function onPointerUp(e){
+    pointer.current.down = false
+  }
+
   return (
     <div className={"screenshot-gallery " + (className||'')}>
-      {images.map((src,i)=> (
-        <figure className="screenshot-item" key={i}>
-          <img src={src} alt={`screenshot-${i+1}`} loading="lazy" />
-        </figure>
-      ))}
+      <button aria-hidden className="gallery-btn prev" onClick={()=>scrollByOffset(-1)}>&lsaquo;</button>
+      <div
+        className="screenshot-track"
+        ref={containerRef}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        onWheel={(e)=>{
+          // allow vertical wheel to scroll horizontally when over the gallery
+          if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
+            e.currentTarget.scrollLeft += e.deltaY
+            e.preventDefault()
+          }
+        }}
+      >
+        {images.map((src,i)=> (
+          <figure className="screenshot-item" key={i}>
+            <img src={src} alt={`screenshot-${i+1}`} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <button aria-hidden className="gallery-btn next" onClick={()=>scrollByOffset(1)}>&rsaquo;</button>
     </div>
   )
 }

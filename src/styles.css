@@ -48,11 +48,28 @@ button{font-family:inherit}
 .download-card .filename{margin:0;color:var(--text);font-weight:600}
 .download-card .md-btn{align-self:stretch}
 
-/* Screenshot gallery */
-.screenshot-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px}
-.screenshot-item{padding:8px;border-radius:10px;display:block;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:var(--elevation-1);transition:transform .18s ease, box-shadow .18s ease}
-.screenshot-item img{width:100%;height:auto;display:block;border-radius:6px}
-.screenshot-item:hover{transform:translateY(-6px);box-shadow:var(--elevation-2)}
+/* Screenshot gallery - horizontal, snap-style (like Google Play) */
+.screenshot-gallery{position:relative;margin-top:16px}
+.screenshot-track{display:flex;gap:14px;padding:12px 40px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth}
+.screenshot-track::-webkit-scrollbar{height:10px}
+.screenshot-track::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:6px}
+.screenshot-item{flex:0 0 auto;width:70%;max-width:520px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:var(--elevation-1);scroll-snap-align:center;transition:transform .18s ease, box-shadow .18s ease}
+.screenshot-item img{width:100%;height:auto;display:block}
+.screenshot-item:active{cursor:grabbing}
+.screenshot-item:hover{transform:translateY(-8px);box-shadow:var(--elevation-2)}
+
+/* Prev/Next buttons */
+.gallery-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:999px;border:0;background:rgba(0,0,0,0.45);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--elevation-1);z-index:30}
+.gallery-btn.prev{left:8px}
+.gallery-btn.next{right:8px}
+.gallery-btn:hover{background:rgba(0,0,0,0.6);transform:translateY(-50%) scale(1.03)}
+.gallery-btn:active{transform:translateY(-50%) scale(.98)}
+
+@media (max-width:700px){
+	.screenshot-item{width:88%}
+	.screenshot-track{padding:12px 20px}
+	.gallery-btn{width:36px;height:36px}
+}
 
 .download-link .md-btn{font-size:0.95rem;padding:6px 10px}
 .download-link small{margin-left:6px}
