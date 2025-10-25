@@ -31,14 +31,13 @@ export default function App(){
           <h2>{t('myrpg_title')}</h2>
           <p>{t('myrpg_desc')}</p>
 
+          <ScreenshotGallery />
+
           <h3>{t('demo')}</h3>
           <ul>
             <li>{t('rom')}: <a href={config.downloads.rom}>{config.downloads.rom}</a></li>
             <li>{t('windows')}: <a href={config.downloads.windows}>{config.downloads.windows}</a></li>
           </ul>
-
-          {/* Screenshot gallery (auto-loads from src/assets/... or public/.../index.json) */}
-          <ScreenshotGallery />
         </section>
       </main>
 
