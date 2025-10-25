@@ -7,7 +7,7 @@ import React, { useEffect, useState, useRef } from 'react'
 //   which should contain an array of filenames (e.g. ["shot1.png","shot2.png"]).
 //   This fallback works if images are placed in public/images/myrpg/screenshots/.
 
-export default function ScreenshotGallery({ className }){
+export default function ScreenshotGallery({ className, visibleCount = 3 }){
   const [images, setImages] = useState([])
   const containerRef = useRef(null)
   const pointer = useRef({ down: false, startX: 0, scrollLeft: 0 })
@@ -29,12 +29,31 @@ export default function ScreenshotGallery({ className }){
     })
   },[])
 
+  // ensure CSS variables reflect desired visible count and gap
+  useEffect(()=>{
+    const el = containerRef.current
+    if(!el) return
+    // set CSS variables so styles can respond
+    el.style.setProperty('--gallery-visible-count', String(visibleCount))
+    // keep a gap variable in sync with CSS default (14px)
+    el.style.setProperty('--gallery-gap', '14px')
+  },[visibleCount])
+
   if(images.length===0) return null
 
   const scrollByOffset = (offset) => {
     const el = containerRef.current
     if(!el) return
-    const amount = Math.round(el.clientWidth * 0.8) * offset
+    // try to measure one slide (including gap) and scroll by that amount
+    const first = el.querySelector('.screenshot-item')
+    // try reading gap from CSS variable if present
+    const cs = window.getComputedStyle(el)
+    const gapValue = cs.getPropertyValue('--gallery-gap') || cs.getPropertyValue('gap') || '14px'
+    const gap = parseInt(gapValue,10) || 14
+    let amount = Math.round(el.clientWidth * 0.8) * offset
+    if(first){
+      amount = (first.offsetWidth + gap) * offset
+    }
     el.scrollBy({ left: amount, behavior: 'smooth' })
   }
 
