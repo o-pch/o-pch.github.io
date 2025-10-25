@@ -2,6 +2,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import Header from './components/Header'
 import config from './config'
+import ScreenshotGallery from './components/ScreenshotGallery'
 
 export default function App(){
   const { t, i18n } = useTranslation()
@@ -24,12 +25,20 @@ export default function App(){
           <p>
             {t('youtube')}: <a id="youtubeChannel" href={config.youtubeUrl || '#'} title={t('youtube')} target="_blank" rel="noopener noreferrer">{t('channel_placeholder')}</a>
           </p>
+        </section>
 
-          <h3>{t('myrpg')}</h3>
+        <section id="myrpg" className="container myrpg">
+          <h2>{t('myrpg_title')}</h2>
+          <p>{t('myrpg_desc')}</p>
+
+          <h3>{t('demo')}</h3>
           <ul>
             <li>{t('rom')}: <a href={config.downloads.rom}>{config.downloads.rom}</a></li>
             <li>{t('windows')}: <a href={config.downloads.windows}>{config.downloads.windows}</a></li>
           </ul>
+
+          {/* Screenshot gallery (auto-loads from src/assets/... or public/.../index.json) */}
+          <ScreenshotGallery />
         </section>
       </main>
 

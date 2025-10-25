@@ -7,7 +7,10 @@ const resources = {
       title: 'pch',
       links: 'Links / ダウンロード',
       youtube: 'YouTube チャンネル',
-      myrpg: 'MyRPG デモ版',
+  myrpg: 'MyRPG デモ版',
+  myrpg_title: 'MyRPG',
+  myrpg_desc: '(MyRPG に関する説明をここに記入します)',
+  demo: 'デモ版',
       rom: 'ROM 版',
       windows: 'Windows 実行ファイル',
       channel_placeholder: 'チャンネルを見る (URL を設定してください)'
@@ -18,7 +21,10 @@ const resources = {
       title: 'pch',
       links: 'Links / Downloads',
       youtube: 'YouTube Channel',
-      myrpg: 'MyRPG Demo',
+  myrpg: 'MyRPG Demo',
+  myrpg_title: 'MyRPG',
+  myrpg_desc: '(Add a description about MyRPG here)',
+  demo: 'Demo',
       rom: 'ROM',
       windows: 'Windows executable',
       channel_placeholder: 'View channel (set URL)'
