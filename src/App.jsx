@@ -15,10 +15,6 @@ export default function App(){
   return (
     <div className="app">
       <Header />
-      <div style={{position:'absolute', right:20, top:12}}>
-        <button onClick={()=>changeLang('ja')}>日本語</button>
-        <button onClick={()=>changeLang('en')} style={{marginLeft:8}}>EN</button>
-      </div>
 
       <main className="container">
         <section className="downloads">

@@ -39,7 +39,7 @@ export default function DownloadLink({ href, children }){
 
   return (
     <span className="download-link">
-      <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
+      <a className="md-btn" href={href} target="_blank" rel="noopener noreferrer">{children}</a>
       {meta.size !== null && (
         <small style={{marginLeft:8,color:'var(--muted)'}}>({formatBytes(meta.size)})</small>
       )}
