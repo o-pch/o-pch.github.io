@@ -6,3 +6,12 @@ body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#071124;co
 h1{margin:12px 0}
 .downloads a{color:var(--accent)}
 .site-footer{padding:18px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03);margin-top:40px}
+
+/* Header component styles */
+.header-component{background:linear-gradient(180deg,#071124,#081226);}
+.header-inner{display:flex;align-items:center;gap:12px;padding:10px 0}
+.logo-link{display:inline-flex;align-items:center;text-decoration:none}
+.logo-img{width:48px;height:auto;display:block}
+.brand-title{font-weight:700;color:var(--accent);margin-left:8px}
+.spacer{flex:1}
+

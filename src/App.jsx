@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import Header from './components/Header'
 
 export default function App(){
   const { t, i18n } = useTranslation()
@@ -10,15 +11,11 @@ export default function App(){
 
   return (
     <div className="app">
-      <header className="site-header">
-        <div className="container">
-          <h1>{t('title')}</h1>
-          <div style={{float:'right'}}>
-            <button onClick={()=>changeLang('ja')}>日本語</button>
-            <button onClick={()=>changeLang('en')} style={{marginLeft:8}}>EN</button>
-          </div>
-        </div>
-      </header>
+      <Header />
+      <div style={{position:'absolute', right:20, top:12}}>
+        <button onClick={()=>changeLang('ja')}>日本語</button>
+        <button onClick={()=>changeLang('en')} style={{marginLeft:8}}>EN</button>
+      </div>
 
       <main className="container">
         <section className="downloads">
