@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import Header from './components/Header'
 import config from './config'
 import ScreenshotGallery from './components/ScreenshotGallery'
+import DownloadLink from './components/DownloadLink'
 
 export default function App(){
   const { t, i18n } = useTranslation()
@@ -35,8 +36,8 @@ export default function App(){
 
           <h3>{t('demo')}</h3>
           <ul>
-            <li>{t('rom')}: <a href={config.downloads.rom}>{config.downloads.rom}</a></li>
-            <li>{t('windows')}: <a href={config.downloads.windows}>{config.downloads.windows}</a></li>
+            <li>{t('rom')}: <DownloadLink href={config.downloads.rom}>{config.downloads.rom.split('/').pop()}</DownloadLink></li>
+            <li>{t('windows')}: <DownloadLink href={config.downloads.windows}>{config.downloads.windows.split('/').pop()}</DownloadLink></li>
           </ul>
         </section>
       </main>

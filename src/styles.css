@@ -20,3 +20,7 @@ h1{margin:12px 0}
 .screenshot-item{background:rgba(255,255,255,0.02);padding:8px;border-radius:10px;display:block}
 .screenshot-item img{width:100%;height:auto;display:block;border-radius:6px}
 
+/* Download link metadata */
+.download-link small{font-size:0.85rem}
+
+
