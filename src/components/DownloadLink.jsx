@@ -39,12 +39,15 @@ export default function DownloadLink({ href, children }){
 
   return (
     <span className="download-link">
-      <a className="md-btn" href={href} target="_blank" rel="noopener noreferrer">{children}</a>
+      <a className="md-btn" href={href} target="_blank" rel="noopener noreferrer">
+        <span className="material-icons" style={{verticalAlign:'middle',marginRight:8,fontSize:18}}>file_download</span>
+        <span style={{verticalAlign:'middle'}}>{children}</span>
+      </a>
       {meta.size !== null && (
-        <small style={{marginLeft:8,color:'var(--muted)'}}>({formatBytes(meta.size)})</small>
+        <small className="download-meta">({formatBytes(meta.size)})</small>
       )}
       {meta.mtime && (
-        <small style={{marginLeft:8,color:'var(--muted)'}}>Updated: {formatDate(meta.mtime)}</small>
+        <small className="download-meta">Updated: {formatDate(meta.mtime)}</small>
       )}
     </span>
   )

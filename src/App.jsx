@@ -23,7 +23,18 @@ export default function App(){
             {t('about.desc')}
           </p>
           <p>
-            {t('about.youtube')}: <a id="youtubeChannel" href={config.youtubeUrl || '#'} title={t('about.youtube')} target="_blank" rel="noopener noreferrer">{t('channel_placeholder')}</a>
+            <a
+              id="youtubeChannel"
+              className={config.youtubeUrl ? 'yt-btn' : 'yt-btn disabled'}
+              href={config.youtubeUrl || '#'}
+              title={t('about.youtube')}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t('about.youtube')}
+            >
+              <span className="yt-icon material-icons">play_circle_filled</span>
+              <span className="yt-text">{config.youtubeUrl ? t('about.youtube') : t('channel_placeholder')}</span>
+            </a>
           </p>
         </section>
 
@@ -34,10 +45,19 @@ export default function App(){
           <ScreenshotGallery />
 
           <h3>{t('demo')}</h3>
-          <ul>
-            <li>{t('rom')}: <DownloadLink href={config.downloads.rom}>{config.downloads.rom.split('/').pop()}</DownloadLink></li>
-            <li>{t('windows')}: <DownloadLink href={config.downloads.windows}>{config.downloads.windows.split('/').pop()}</DownloadLink></li>
-          </ul>
+          <div className="download-grid">
+            <div className="download-card card">
+              <h4>{t('rom')}</h4>
+              <p className="filename">{config.downloads.rom.split('/').pop()}</p>
+              <DownloadLink href={config.downloads.rom}>{t('download_button')}</DownloadLink>
+            </div>
+
+            <div className="download-card card">
+              <h4>{t('windows')}</h4>
+              <p className="filename">{config.downloads.windows.split('/').pop()}</p>
+              <DownloadLink href={config.downloads.windows}>{t('download_button')}</DownloadLink>
+            </div>
+          </div>
         </section>
       </main>
 

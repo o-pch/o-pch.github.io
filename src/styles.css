@@ -29,10 +29,24 @@ button{font-family:inherit}
 .md-btn.secondary{background:transparent;color:var(--text);box-shadow:none;border:1px solid rgba(255,255,255,0.06)}
 .md-btn:active{transform:translateY(1px)}
 
+/* YouTube channel button */
+.yt-btn{display:inline-flex;align-items:center;gap:8px;background:#FF0000;color:#fff;padding:6px 10px;border-radius:999px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,0.25);font-weight:600;border:1px solid rgba(0,0,0,0.08)}
+.yt-btn .yt-icon{font-size:18px;vertical-align:middle}
+.yt-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,0.28)}
+.yt-btn.disabled{opacity:0.6;pointer-events:none;background:linear-gradient(90deg,#c33,#a00)}
+.yt-btn .yt-text{display:inline-block}
+
 .site-footer{padding:20px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03);margin-top:48px}
 
 /* Cards */
 .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;box-shadow:var(--elevation-1)}
+
+/* Download grid & cards */
+.download-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:12px}
+.download-card{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.download-card h4{margin:0;color:var(--md-primary);font-size:0.95rem}
+.download-card .filename{margin:0;color:var(--text);font-weight:600}
+.download-card .md-btn{align-self:stretch}
 
 /* Screenshot gallery */
 .screenshot-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px}
