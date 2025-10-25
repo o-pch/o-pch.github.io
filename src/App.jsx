@@ -40,7 +40,14 @@ export default function App(){
 
         <section id="myrpg" className="container myrpg">
           <h2>{t('myrpg_title')}</h2>
-          <p>{t('myrpg_desc')}</p>
+          <p>
+            {t('myrpg_desc').split('\n').map((line, idx, arr) => (
+              <React.Fragment key={idx}>
+                {line}
+                {idx < arr.length - 1 && <br />}
+              </React.Fragment>
+            ))}
+          </p>
 
           <p>
             <a
