@@ -55,7 +55,7 @@ export default function App(){
             </a>
           </p>
 
-          <ScreenshotGallery />
+          <ScreenshotGallery visibleCount={4} />
 
           <h3>{t('demo')}</h3>
           <div className="download-grid">

@@ -7,10 +7,11 @@ import React, { useEffect, useState, useRef } from 'react'
 //   which should contain an array of filenames (e.g. ["shot1.png","shot2.png"]).
 //   This fallback works if images are placed in public/images/myrpg/screenshots/.
 
-export default function ScreenshotGallery({ className, visibleCount = 3 }){
+export default function ScreenshotGallery({ className, visibleCount }){
   const [images, setImages] = useState([])
   const containerRef = useRef(null)
   const pointer = useRef({ down: false, startX: 0, scrollLeft: 0 })
+  const [visible, setVisible] = useState(visibleCount || 2)
 
   useEffect(()=>{
 
@@ -29,14 +30,18 @@ export default function ScreenshotGallery({ className, visibleCount = 3 }){
     })
   },[])
 
-  // ensure CSS variables reflect desired visible count and gap
+  // persist only when no `visibleCount` prop is provided
   useEffect(()=>{
-    const el = containerRef.current
-    if(!el) return
-    // set CSS variables so styles can respond
-    el.style.setProperty('--gallery-visible-count', String(visibleCount))
-    // keep a gap variable in sync with CSS default (14px)
-    el.style.setProperty('--gallery-gap', '14px')
+    if(typeof visibleCount !== 'number'){
+      try{ localStorage.setItem('galleryVisibleCount', String(visible)) }catch(e){}
+    }
+  },[visible, visibleCount])
+
+  // If a numeric prop is provided, always follow it (reflect prop changes)
+  useEffect(()=>{
+    if(typeof visibleCount === 'number' && visibleCount > 0){
+      setVisible(visibleCount)
+    }
   },[visibleCount])
 
   if(images.length===0) return null
@@ -47,7 +52,7 @@ export default function ScreenshotGallery({ className, visibleCount = 3 }){
     // try to measure one slide (including gap) and scroll by that amount
     const first = el.querySelector('.screenshot-item')
     // try reading gap from CSS variable if present
-    const cs = window.getComputedStyle(el)
+  const cs = window.getComputedStyle(el)
     const gapValue = cs.getPropertyValue('--gallery-gap') || cs.getPropertyValue('gap') || '14px'
     const gap = parseInt(gapValue,10) || 14
     let amount = Math.round(el.clientWidth * 0.8) * offset
@@ -83,8 +88,9 @@ export default function ScreenshotGallery({ className, visibleCount = 3 }){
     <div className={"screenshot-gallery " + (className||'')}>
       <button aria-hidden className="gallery-btn prev" onClick={()=>scrollByOffset(-1)}>&lsaquo;</button>
       <div
-        className="screenshot-track"
-        ref={containerRef}
+  className="screenshot-track"
+  ref={containerRef}
+  style={{ '--gallery-visible-count': String((typeof visibleCount === 'number' && visibleCount > 0) ? visibleCount : visible), '--gallery-gap': '14px' }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
