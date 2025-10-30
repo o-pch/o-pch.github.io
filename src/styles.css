@@ -53,6 +53,11 @@ button{font-family:inherit}
 .download-card .filename{margin:0;color:var(--text);font-weight:600}
 .download-card .md-btn{align-self:stretch}
 
+.repo-link{display:inline-flex;align-items:center;gap:8px;margin-top:8px;color:var(--accent);font-size:0.92rem;text-decoration:none}
+.repo-icon{width:18px;height:18px;fill:currentColor;flex:0 0 18px}
+.repo-text{text-decoration:none}
+.repo-link:hover{color:var(--md-primary);text-decoration:underline}
+
 /* Screenshot gallery - horizontal, snap-style (like Google Play) */
 .screenshot-gallery{position:relative;margin-top:16px}
 .screenshot-track{display:flex;gap:var(--gallery-gap,14px);padding:12px 40px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth}

@@ -76,6 +76,12 @@ export default function App(){
               <h4>{t('windows')}</h4>
               <p className="filename">{config.downloads.windows.split('/').pop()}</p>
               <DownloadLink href={config.downloads.windows}>{t('download_button')}</DownloadLink>
+              <a className="repo-link" href="https://github.com/o-pch/SameBoy" target="_blank" rel="noopener noreferrer" aria-label={t('source_repo')}>
+                <svg className="repo-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55 0-.27-.01-1-.01-1.96-3.2.7-3.88-1.55-3.88-1.55-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.02 0 0 .95-.3 3.11 1.18A10.8 10.8 0 0112 6.8c.96.01 1.93.13 2.83.38 2.16-1.48 3.11-1.18 3.11-1.18.62 1.57.23 2.73.11 3.02.74.81 1.18 1.84 1.18 3.1 0 4.43-2.71 5.41-5.29 5.69.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.13 0 .3.21.66.79.55A11.5 11.5 0 0023.5 12C23.5 5.73 18.27.5 12 .5z"/>
+                </svg>
+                <span className="repo-text">{t('source_repo')}</span>
+              </a>
             </div>
           </div>
         </section>
