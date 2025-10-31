@@ -20,6 +20,14 @@ const resources = {
       rom: 'ROM 版',
       windows: 'Windows 実行ファイル',
       channel_placeholder: 'チャンネルを見る (URL を設定してください)'
+      ,
+      social: {
+        title: '連絡・ソーシャル',
+        x: 'X (旧 Twitter)',
+        discord: 'Discord',
+        metamask: 'MetaMask アドレス',
+        placeholder: '(未設定)'
+      }
     }
   },
   en: {
@@ -40,6 +48,14 @@ const resources = {
       rom: 'ROM',
       windows: 'Windows executable',
       channel_placeholder: 'View channel (set URL)'
+      ,
+      social: {
+        title: 'Contact / Social',
+        x: 'X (was Twitter)',
+        discord: 'Discord',
+        metamask: 'MetaMask address',
+        placeholder: '(not set)'
+      }
     }
   }
 }

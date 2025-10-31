@@ -43,6 +43,27 @@ button{font-family:inherit}
 
 .site-footer{padding:20px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03);margin-top:48px}
 
+/* footer social placeholders */
+.footer-main{margin-bottom:8px}
+.footer-social{display:flex;flex-direction:column;gap:6px}
+.footer-links{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.footer-link{color:var(--accent);text-decoration:none;font-weight:600}
+.footer-link:hover{color:var(--md-primary);text-decoration:underline}
+.footer-placeholder{color:var(--muted);background:rgba(255,255,255,0.02);padding:4px 8px;border-radius:6px;font-size:0.95rem}
+
+/* social icons in footer */
+.social-icon{width:18px;height:18px;flex:0 0 18px;fill:currentColor}
+.footer-links .footer-link, .footer-links .footer-placeholder{display:inline-flex;align-items:center;gap:8px;padding:4px 6px}
+
+/* brand colors for social icons */
+.social-icon.x{color:#000}
+.social-icon.x[src]{width:18px;height:18px;object-fit:contain}
+.social-icon.discord{color:#5865F2}
+.social-icon.metamask{color:#F6851B}
+.social-icon.metamask[src]{width:18px;height:18px;object-fit:contain}
+.social-icon.metamask{width:18px;height:18px}
+.social-icon.discord[src]{width:18px;height:18px;object-fit:contain}
+
 /* Cards */
 .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;box-shadow:var(--elevation-1)}
 

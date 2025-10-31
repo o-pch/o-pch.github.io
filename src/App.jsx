@@ -88,7 +88,49 @@ export default function App(){
       </main>
 
       <footer className="site-footer">
-        <div className="container">© {new Date().getFullYear()} pch</div>
+        <div className="container">
+          <div className="footer-main">© {new Date().getFullYear()} pch</div>
+          <div className="footer-social">
+            <strong>{t('social.title')}:</strong>
+            <div className="footer-links">
+              {config.xUrl ? (
+                <a className="footer-link" href={config.xUrl} target="_blank" rel="noopener noreferrer">
+                  <img className="social-icon x" src="/icons/x-logo-white.png" alt="X" />
+                  <span>{t('social.x')}</span>
+                </a>
+              ) : (
+                <span className="footer-placeholder">
+                  <img className="social-icon x" src="/icons/x-logo-white.png" alt="X" />
+                  <span>{t('social.x')} {t('social.placeholder')}</span>
+                </span>
+              )}
+
+              {config.discordUrl ? (
+                <a className="footer-link" href={config.discordUrl} target="_blank" rel="noopener noreferrer">
+                  <img className="social-icon discord" src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d80db9971f10a9757c99_Symbol.svg" alt="Discord" />
+                  <span>{t('social.discord')}</span>
+                </a>
+              ) : (
+                <span className="footer-placeholder">
+                  <img className="social-icon discord" src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/66e3d80db9971f10a9757c99_Symbol.svg" alt="Discord" />
+                  <span>{t('social.discord')} {t('social.placeholder')}</span>
+                </span>
+              )}
+
+              {config.metamaskAddress ? (
+                <span className="footer-link">
+                  <img className="social-icon metamask" src="https://images.ctfassets.net/clixtyxoaeas/1ezuBGezqfIeifWdVtwU4c/d970d4cdf13b163efddddd5709164d2e/MetaMask-icon-Fox.svg" alt="MetaMask" />
+                  <span>{t('social.metamask')}: {config.metamaskAddress}</span>
+                </span>
+              ) : (
+                <span className="footer-placeholder">
+                  <img className="social-icon metamask" src="https://images.ctfassets.net/clixtyxoaeas/1ezuBGezqfIeifWdVtwU4c/d970d4cdf13b163efddddd5709164d2e/MetaMask-icon-Fox.svg" alt="MetaMask" />
+                  <span>{t('social.metamask')} {t('social.placeholder')}</span>
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   )
