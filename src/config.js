@@ -8,8 +8,8 @@ const config = {
 
   // Social / contact placeholders (fill these later)
   xUrl: "", // X (Twitter) profile or URL
-  discordUrl: "", // Discord invite or server URL
-  metamaskAddress: "", // MetaMask / wallet address
+  discordUrl: "https://discordapp.com/users/1202562812463943691", // Discord invite or server URL
+  metamaskAddress: "0xCEa742eE43dC00be970a0F252075b1cE5A76270F", // MetaMask / wallet address
 
   // downloadable assets (relative to site root or public/)
   downloads: {
