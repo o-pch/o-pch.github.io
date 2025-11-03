@@ -12,6 +12,21 @@ export default function App(){
     i18n.changeLanguage(lng)
   }
 
+  function getYouTubeEmbedUrl(url){
+    if(!url) return ''
+    // match common YouTube URL forms (youtu.be/ID, youtube.com/watch?v=ID, youtube.com/embed/ID)
+    const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/)
+    if(m && m[1]) return `https://www.youtube.com/embed/${m[1]}?rel=0`
+    // fallback: return original URL (may not embed correctly)
+    return url
+  }
+
+  function getYouTubeId(url){
+    if(!url) return null
+    const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/)
+    return m && m[1] ? m[1] : null
+  }
+
   return (
     <div className="app">
       <Header />
@@ -65,6 +80,11 @@ export default function App(){
           <ScreenshotGallery visibleCount={4} />
 
           <h3>{t('demo')}</h3>
+
+          {config.playDemoMovie ? (
+            <VideoEmbed url={config.playDemoMovie} title={t('demo')} />
+          ) : null}
+
           <div className="download-grid">
             <div className="download-card card">
               <h4>{t('rom')}</h4>
@@ -132,6 +152,52 @@ export default function App(){
           </div>
         </div>
       </footer>
+    </div>
+  )
+}
+
+
+function VideoEmbed({url, title}){
+  const [loaded, setLoaded] = React.useState(false)
+
+  const extractId = (u) => {
+    if(!u) return null
+    // if the config provides just the 11-char ID, accept it
+    const idOnly = u.match(/^([A-Za-z0-9_-]{11})$/)
+    if(idOnly) return idOnly[1]
+    const m = u.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/)
+    return m && m[1] ? m[1] : null
+  }
+
+  const id = extractId(url)
+  const thumb = id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null
+  const embed = id ? `https://www.youtube.com/embed/${id}?rel=0` : (url || '')
+
+  if(!url) return null
+
+  return (
+    <div className="video-embed card">
+      {!loaded ? (
+        <div
+          className="video-poster"
+          role="button"
+          tabIndex={0}
+          onClick={()=>setLoaded(true)}
+          onKeyDown={(e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setLoaded(true) } }}
+          aria-label={title || 'Play video'}
+        >
+          {thumb ? <img src={thumb} alt={title || 'Video'} /> : <div className="video-poster-fallback">{title || 'Play'}</div>}
+          <div className="play-overlay"><span className="material-icons">play_circle_filled</span></div>
+        </div>
+      ) : (
+        <iframe
+          src={embed}
+          title={title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      )}
     </div>
   )
 }

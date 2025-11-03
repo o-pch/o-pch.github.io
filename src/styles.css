@@ -79,6 +79,18 @@ button{font-family:inherit}
 .repo-text{text-decoration:none}
 .repo-link:hover{color:var(--md-primary);text-decoration:underline}
 
+/* Responsive video embed (16:9) */
+.video-embed{position:relative;padding-top:56.25%;margin:12px auto;border-radius:12px;overflow:hidden;width:100%;background:#000;aspect-ratio:16/9}
+.video-embed iframe{position:absolute;left:0;top:0;width:100%;height:100%;border:0}
+
+/* Poster / click-to-load styles */
+.video-poster{position:absolute;left:0;top:0;width:100%;height:100%;cursor:pointer;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:12px}
+.video-poster img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block;background:#000}
+.video-poster-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.05));color:var(--text)}
+.play-overlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(0,0,0,0.36);width:72px;height:72px;border-radius:999px}
+.play-overlay .material-icons{font-size:40px}
+.video-poster:focus{outline:3px solid rgba(255,255,255,0.06);outline-offset:4px}
+
 /* Screenshot gallery - horizontal, snap-style (like Google Play) */
 .screenshot-gallery{position:relative;margin-top:16px}
 .screenshot-track{display:flex;gap:var(--gallery-gap,14px);padding:12px 40px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth}
