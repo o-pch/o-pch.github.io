@@ -77,14 +77,13 @@ export default function App(){
             </a>
           </p>
 
-          <ScreenshotGallery visibleCount={4} />
-
-          <h3>{t('demo')}</h3>
-
           {config.playDemoMovie ? (
             <VideoEmbed url={config.playDemoMovie} title={t('demo')} />
           ) : null}
 
+          <ScreenshotGallery visibleCount={4} />
+
+          <h3>{t('demo')}</h3>
           <div className="download-grid">
             <div className="download-card card">
               <h4>{t('rom')}</h4>
