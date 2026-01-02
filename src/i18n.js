@@ -16,11 +16,15 @@ const resources = {
       demo: 'デモ版ダウンロード',
         download_button: 'ダウンロード',
         source_repo: 'ソース (GitHub)',
-    myrpg_playlist: '制作過程プレイリスト',
+      myrpg_playlist: '制作過程プレイリスト',
       rom: 'ROM 版',
       windows: 'Windows 実行ファイル',
-      channel_placeholder: 'チャンネルを見る (URL を設定してください)'
-      ,
+      channel_placeholder: 'チャンネルを見る (URL を設定してください)',
+      tools_title: '開発環境',
+      used_tools_title: '使用ツール',
+      custom_tools_title: 'カスタム開発ツール',
+      tool_tilemap_studio_desc: 'Tilemap Studio のカスタムバージョン。Bank番号指定や細かい利便性を向上させています。',
+      tool_gimp_tilemap_desc: 'GIMP の Game Boy タイルマッププラグインのカスタムバージョン。png2gbtiles.exe実行時にBank指定を可能にしています。',
       social: {
         title: '連絡・ソーシャル',
         x: 'X (旧 Twitter)',
@@ -49,6 +53,11 @@ const resources = {
       windows: 'Windows executable',
       channel_placeholder: 'View channel (set URL)'
       ,
+      tools_title: 'Development Tools',
+      used_tools_title: 'Used Tools',
+      custom_tools_title: 'Custom Tools',
+      tool_tilemap_studio_desc: 'Custom version of Tilemap Studio, optimized for Game Boy development.',
+      tool_gimp_tilemap_desc: 'Custom version of GIMP plugin for Game Boy tilemaps.',
       social: {
         title: 'Contact / Social',
         x: 'X (was Twitter)',
