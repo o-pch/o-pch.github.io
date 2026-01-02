@@ -107,13 +107,13 @@ export default function App(){
           <h2>{t('tools_title')}</h2>
           <h3>{t('used_tools_title')}</h3>
           <ul className="used-tools-list">
-            <li>GBDK-2020</li>
-            <li>Visual Studio Code</li>
-            <li>Paint.net</li>
-            <li>MuseScore Studio 4</li>
-            <li>Emuliciois</li>
-            <li>GBMB_GBTD</li>
-            <li>EDGE</li>
+            <li><a href="https://github.com/gbdk-2020/gbdk-2020">GBDK-2020</a></li>
+            <li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+            <li><a href="https://www.getpaint.net/">Paint.net</a></li>
+            <li><a href="https://musescore.org/en">MuseScore Studio 4</a></li>
+            <li><a href="https://emulicious.net/">Emulicious</a></li>
+            <li><a href="https://github.com/gbdk-2020/GBTD_GBMB">GBTD_GBMB</a></li>
+            <li><a href="https://takabosoft.com/edge">EDGE</a></li>
           </ul>
 
           <h3>{t('custom_tools_title')}</h3>
