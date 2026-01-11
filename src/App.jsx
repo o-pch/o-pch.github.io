@@ -4,6 +4,7 @@ import Header from './components/Header'
 import config from './config'
 import ScreenshotGallery from './components/ScreenshotGallery'
 import DownloadLink from './components/DownloadLink'
+import GameBoyEmulator from './components/GameBoyEmulator'
 
 export default function App(){
   const { t, i18n } = useTranslation()
@@ -84,6 +85,11 @@ export default function App(){
           <ScreenshotGallery visibleCount={4} />
 
           <h3>{t('demo')}</h3>
+          
+          <div style={{ marginBottom: '2rem' }}>
+            <GameBoyEmulator romPath={config.romFile} />
+          </div>
+
           <div className="download-grid">
             <div className="download-card card">
               <h4>{t('rom')}</h4>
