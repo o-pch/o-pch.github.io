@@ -25,6 +25,14 @@ const resources = {
       custom_tools_title: 'カスタム開発ツール',
       tool_tilemap_studio_desc: 'Tilemap Studio のカスタムバージョン。Bank番号指定や細かい利便性を向上させています。',
       tool_gimp_tilemap_desc: 'GIMP の Game Boy タイルマッププラグインのカスタムバージョン。png2gbtiles.exe実行時にBank指定を可能にしています。',
+      keyboard: {
+        legend: 'キー操作',
+        dpad: '十字キー',
+        a_button: 'Aボタン',
+        b_button: 'Bボタン',
+        start: 'スタート',
+        select: 'セレクト'
+      },
       social: {
         title: '連絡・ソーシャル',
         x: 'X (旧 Twitter)',
@@ -58,6 +66,14 @@ const resources = {
       custom_tools_title: 'Custom Tools',
       tool_tilemap_studio_desc: 'Custom version of Tilemap Studio, optimized for Game Boy development.',
       tool_gimp_tilemap_desc: 'Custom version of GIMP plugin for Game Boy tilemaps.',
+      keyboard: {
+        legend: 'Key Controls',
+        dpad: 'D-Pad',
+        a_button: 'A Button',
+        b_button: 'B Button',
+        start: 'Start',
+        select: 'Select'
+      },
       social: {
         title: 'Contact / Social',
         x: 'X (was Twitter)',

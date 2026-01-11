@@ -4,8 +4,14 @@ import { useTranslation } from 'react-i18next'
 export default function GameBoyEmulator({ romPath = 'files/myrpg_demo_release.gb' }) {
   const { t } = useTranslation()
   const containerRef = useRef(null)
-  const [error, setError] = useState('')
+  const [isMobile, setIsMobile] = useState(false)
   const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // Check if device is mobile on mount
+    const mobileCheck = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    setIsMobile(mobileCheck)
+  }, [])
 
   useEffect(() => {
     // Wait for the DOM element to be ready before loading the script
@@ -103,9 +109,6 @@ export default function GameBoyEmulator({ romPath = 'files/myrpg_demo_release.gb
     }
 ]
 
-    // Check if device is mobile
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-    
     // Only set VirtualGamepadSettings for mobile devices
     if (isMobile) {
       window.EJS_VirtualGamepadSettings = [
@@ -184,10 +187,6 @@ export default function GameBoyEmulator({ romPath = 'files/myrpg_demo_release.gb
     }
   }, [romPath])
 
-  if (error) {
-    return <div className="emulator-error">{error}</div>
-  }
-
   return (
     <div className="gameboy-emulator" ref={containerRef}>
       <div
@@ -202,6 +201,31 @@ export default function GameBoyEmulator({ romPath = 'files/myrpg_demo_release.gb
       >
         {loading && <div className="emulator-loading">Loading emulator...</div>}
       </div>
+      
+      {/* Display keyboard legend for desktop only */}
+      {!isMobile && (
+        <div style={{
+          marginTop: '1.5rem',
+          padding: '1rem',
+          backgroundColor: '#f5f5f5',
+          borderRadius: '8px',
+          fontSize: '0.875rem',
+          color: '#333'
+        }}>
+          <h4 style={{ margin: '0 0 0.75rem 0', color: '#0b1220' }}>{t('keyboard.legend')}</h4>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+            gap: '0.75rem'
+          }}>
+            <div><strong>↑↓←→</strong>: {t('keyboard.dpad')}</div>
+            <div><strong>Z</strong>: {t('keyboard.a_button')}</div>
+            <div><strong>X</strong>: {t('keyboard.b_button')}</div>
+            <div><strong>Enter</strong>: {t('keyboard.start')}</div>
+            <div><strong>Shift</strong>: {t('keyboard.select')}</div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
