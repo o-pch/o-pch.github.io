@@ -37,23 +37,23 @@ export default function GameBoyEmulator({ romPath = 'files/myrpg_demo_release.gb
     window.EJS_AdTimer = -1
 
     window.EJS_Buttons = {
-      playPause: false,
-      restart: false,
-      mute: false,
+      playPause: true,
+      restart: true,
+      mute: true,
       settings: false,
       fullscreen: true,
-      saveState: false,
-      loadState: false,
-      screenRecord: false,
+      saveState: true,
+      loadState: true,
+      screenRecord: true,
       gamepad: false,
       cheat: false,
       volume: true,
       saveSavFiles: true,
       loadSavFiles: true,
-      quickSave: false,
-      quickLoad: false,
+      quickSave: true,
+      quickLoad: true,
       screenshot: false,
-      cacheManager: false,
+      cacheManager: true,
       exitEmulation: false
     }
 
