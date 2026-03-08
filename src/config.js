@@ -16,6 +16,8 @@ const config = {
     rom: "files/gb-myrpg-release-MyRPGDemo202507.zip",
     windows: "files/MyRPGDemo202507_Windows.zip"
   },
+  romFile: "files/myrpg_demo_release.gb",
+
   // official release assets
   officialDownloads: {
     rom: "files/SeedAndLight_1.0.gb",

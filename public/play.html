@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Play in Browser</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Hiragino Kaku Gothic ProN",Meiryo, sans-serif; background:#0b1220; color:#fff; margin:0}
+    .wrap{max-width:900px;margin:2rem auto;padding:1rem}
+    .controls{display:flex;gap:0.5rem;align-items:center;margin-bottom:1rem}
+    a.btn{background:#2196f3;color:#fff;padding:0.6rem 1rem;border-radius:6px;text-decoration:none}
+    #gameboy-container{width:640px;height:480px;max-width:100%;background:#000;margin:0 auto}
+    .notice{margin:1rem 0;padding:0.75rem;background:#142034;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 id="title">Play</h1>
+    <div class="controls">
+      <a class="btn" id="back" href="/">Back</a>
+      <div id="meta" style="margin-left:0.5rem"></div>
+    </div>
+
+    <div id="play-notes" class="notice" style="margin:0 0 1rem 0;padding:0.75rem;background:#142034;border-radius:6px;color:#fff">
+      <ul style="margin:0;padding-left:1.25rem">
+        <li>画面クリックでエミュレーションが開始します</li>
+        <li>ゲーム内のセーブが正常に動作しないので、Emulatorのクイックセーブ・ロードを使用してください</li>
+      </ul>
+    </div>
+
+    <div id="gameboy-container"></div>
+    <div id="error" class="notice" style="display:none;color:#ffcdd2;background:#2b0f12"></div>
+  </div>
+
+  <script>
+    function q(name){
+      const params = new URLSearchParams(location.search);
+      return params.get(name);
+    }
+
+    const romParam = q('rom');
+    if(!romParam){
+      document.getElementById('error').textContent = 'No ROM specified. Use ?rom=path/to/your.gb';
+      document.getElementById('error').style.display = 'block';
+    } else {
+      try{
+        const romUrl = new URL(romParam, window.location.origin).href;
+        const name = romParam.split('/').pop();
+        document.getElementById('title').textContent = name;
+        document.getElementById('meta').textContent = name;
+
+        // Configure EmulatorJS globals for this page (single instance)
+        window.EJS_player = '#gameboy-container';
+        window.EJS_core = 'gb';
+        window.EJS_gameName = name;
+        window.EJS_gameUrl = romUrl;
+        window.EJS_biosUrl = '';
+        window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+        window.EJS_language = 'ja-JA';
+        window.EJS_startOnLoaded = true;
+        window.EJS_AdTimer = -1;
+
+        window.EJS_Buttons = {
+          playPause: true,
+          restart: true,
+          mute: true,
+          settings: true,
+          fullscreen: true,
+          saveState: true,
+          loadState: true,
+          screenRecord: false,
+          gamepad: true,
+          cheat: false,
+          volume: true,
+          saveSavFiles: true,
+          loadSavFiles: true,
+          quickSave: true,
+          quickLoad: true,
+          screenshot: false,
+          cacheManager: true,
+          exitEmulation: false
+        };
+
+        // Load EmulatorJS loader
+        (function(){
+          if(!document.getElementById('emulatorjs-loader')){
+            const s = document.createElement('script');
+            s.id = 'emulatorjs-loader';
+            s.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
+            s.async = false;
+            s.onload = function(){
+              console.log('EmulatorJS loaded');
+            };
+            s.onerror = function(){
+              document.getElementById('error').textContent = 'Failed to load emulator script';
+              document.getElementById('error').style.display = 'block';
+            };
+            document.head.appendChild(s);
+          }
+        })();
+
+      }catch(e){
+        document.getElementById('error').textContent = 'Invalid ROM URL: ' + e.message;
+        document.getElementById('error').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>

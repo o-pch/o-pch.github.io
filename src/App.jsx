@@ -87,7 +87,16 @@ export default function App(){
           <h3>{t('demo')}</h3>
           
           <div style={{ marginBottom: '2rem' }}>
-            <GameBoyEmulator romPath={config.romFile} />
+            <a
+              className="play-btn yt-btn"
+              href={
+                `play.html?rom=${encodeURIComponent(config.romFile)}`
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('play_in_browser')}
+            </a>
           </div>
 
           <div className="download-grid">
@@ -113,11 +122,18 @@ export default function App(){
           {/* Official release section */}
           <h3>{t('official')} ― {t('official_title')}</h3>
 
-          {/*          
           <div style={{ marginBottom: '2rem' }}>
-            <GameBoyEmulator romPath={config.officialRomFile} />
+            <a
+              className="play-btn yt-btn"
+              href={
+                `play.html?rom=${encodeURIComponent(config.officialRomFile)}`
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('play_in_browser')}
+            </a>
           </div>
-          */}
 
           <div className="download-grid">
             <div className="download-card card">

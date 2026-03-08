@@ -35,6 +35,7 @@ const resources = {
         start: 'スタート',
         select: 'セレクト'
       },
+      play_in_browser: 'ブラウザでプレイする',
       social: {
         title: '連絡・ソーシャル',
         x: 'X (旧 Twitter)',
@@ -78,6 +79,7 @@ const resources = {
         start: 'Start',
         select: 'Select'
       },
+      play_in_browser: 'Play in browser',
       social: {
         title: 'Contact / Social',
         x: 'X (was Twitter)',
