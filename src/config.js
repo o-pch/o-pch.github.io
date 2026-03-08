@@ -16,6 +16,12 @@ const config = {
     rom: "files/gb-myrpg-release-MyRPGDemo202507.zip",
     windows: "files/MyRPGDemo202507_Windows.zip"
   },
+  // official release assets
+  officialDownloads: {
+    rom: "files/SeedAndLight_1.0.gb",
+    windows: "files/SeedAndLight_1.0_Win64.zip"
+  },
+  officialRomFile: "files/SeedAndLight_1.0.gb",
 
   // You can specify either a full YouTube URL or just the 11-character video ID.
   // Using only the ID is more concise and less error-prone for configuration.
