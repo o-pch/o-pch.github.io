@@ -55,7 +55,7 @@ export default function App(){
         </section>
 
         <section id="myrpg" className="container myrpg">
-          <h2>{t('myrpg_title')}</h2>
+          <h2>{t('official_title')}</h2>
           <p>
             {t('myrpg_desc').split('\n').map((line, idx, arr) => (
               <React.Fragment key={idx}>
