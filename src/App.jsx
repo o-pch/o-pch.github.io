@@ -84,6 +84,37 @@ export default function App(){
 
           <ScreenshotGallery visibleCount={4} />
 
+          {/* Official release section */}
+          <h3>{t('official')} ― {t('official_title')}</h3>
+
+          <div style={{ marginBottom: '2rem' }}>
+            <a
+              className="play-btn yt-btn"
+              href={
+                `play.html?rom=${encodeURIComponent(config.officialRomFile)}`
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('play_in_browser')}
+            </a>
+          </div>
+
+          <div className="download-grid">
+            <div className="download-card card">
+              <h4>{t('rom')}</h4>
+              <p className="filename">{config.officialDownloads.rom.split('/').pop()}</p>
+              <DownloadLink href={config.officialDownloads.rom}>{t('download_button')}</DownloadLink>
+            </div>
+
+            <div className="download-card card">
+              <h4>{t('windows')}</h4>
+              <p className="filename">{config.officialDownloads.windows.split('/').pop()}</p>
+              <DownloadLink href={config.officialDownloads.windows}>{t('download_button')}</DownloadLink>
+            </div>
+          </div>
+
+          {/* demo release section */}
           <h3>{t('demo')}</h3>
           
           <div style={{ marginBottom: '2rem' }}>
@@ -119,35 +150,6 @@ export default function App(){
             </div>
           </div>
 
-          {/* Official release section */}
-          <h3>{t('official')} ― {t('official_title')}</h3>
-
-          <div style={{ marginBottom: '2rem' }}>
-            <a
-              className="play-btn yt-btn"
-              href={
-                `play.html?rom=${encodeURIComponent(config.officialRomFile)}`
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {t('play_in_browser')}
-            </a>
-          </div>
-
-          <div className="download-grid">
-            <div className="download-card card">
-              <h4>{t('rom')}</h4>
-              <p className="filename">{config.officialDownloads.rom.split('/').pop()}</p>
-              <DownloadLink href={config.officialDownloads.rom}>{t('download_button')}</DownloadLink>
-            </div>
-
-            <div className="download-card card">
-              <h4>{t('windows')}</h4>
-              <p className="filename">{config.officialDownloads.windows.split('/').pop()}</p>
-              <DownloadLink href={config.officialDownloads.windows}>{t('download_button')}</DownloadLink>
-            </div>
-          </div>
 
           <h2>{t('tools_title')}</h2>
           <h3>{t('used_tools_title')}</h3>
