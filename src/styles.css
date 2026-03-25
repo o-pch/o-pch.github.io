@@ -19,6 +19,7 @@ body{margin:0;font-family:'Roboto', Inter, Arial, Helvetica, sans-serif;backgrou
 .header-inner{display:flex;align-items:center;gap:12px;padding:12px 20px}
 .logo-link{display:inline-flex;align-items:center;text-decoration:none}
 .logo-img{width:48px;height:auto;display:block}
+.myrpg-logo{display:block;width:clamp(180px,100vw,1040px);max-width:100%;height:auto;margin:0 auto 1rem;object-fit:contain}
 .brand-title{font-weight:500;color:var(--md-primary);margin-left:12px;font-size:1.1rem}
 .spacer{flex:1}
 .header-actions{display:flex;align-items:center;gap:8px}

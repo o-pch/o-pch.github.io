@@ -56,6 +56,7 @@ export default function App(){
 
         <section id="myrpg" className="container myrpg">
           <h2>{t('official_title')}</h2>
+          <img className="myrpg-logo" src="/images/myrpg/SeedAndLight.png" alt={t('myrpg_title')} />
           <p>
             {t('myrpg_desc').split('\n').map((line, idx, arr) => (
               <React.Fragment key={idx}>
