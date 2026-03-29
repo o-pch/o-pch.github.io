@@ -27,7 +27,7 @@ const config = {
 
   // You can specify either a full YouTube URL or just the 11-character video ID.
   // Using only the ID is more concise and less error-prone for configuration.
-  playDemoMovie: "hW0FFGEMquU"
+  playDemoMovie: "zw_x2XmYvlM"
 }
 
 export default config
